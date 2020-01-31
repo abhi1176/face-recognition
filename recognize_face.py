@@ -43,7 +43,7 @@ def recoginize_face_in_image(
 			name = path_name_encodings[closest_index][1]
 		else:
 			name = "Unknown"
-		cv2.putText(image, name, (x1+6, y2-6),
+		cv2.putText(image, name, (x1+2, y2-6),
 					cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
 	return image[:, :, ::-1]
 

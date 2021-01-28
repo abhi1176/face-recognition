@@ -15,11 +15,22 @@ conda install -c conda-forge face_recognition
 
 ## Prepare face encodings for faces in `known_images`
 
+* Prepare the reference encodings where the input folder (`-i`) contains the folders of each individual
+    - Create a folder containing the images of the person and place it under `known_images` folder
+* face-recognition module has 2 different models
+    1. Small model: Extract 5 feature points from the face and encode them
+    2. Large model: Extract 58 feature points from the face and encode them
+
+
 ```sh
+# Prepare the encodings for each face in every subfolder of known_images using small model
 python prepare_reference_encodings.py -i "known_images/"
+# Prepare the encodings for each face in every subfolder of known_images using large model
 python prepare_reference_encodings.py -i "known_images/" --use-large-model
 
+# Prepare the encodings for each face (detected using cvlib module) in every subfolder of known_images using small model
 python prepare_reference_encodings.py -i "known_images/" --use-cvlib
+# Prepare the encodings for each face (detected using cvlib module) in every subfolder of known_images using large model
 python prepare_reference_encodings.py -i "known_images/" --use-cvlib --use-large-model
 ```
 
